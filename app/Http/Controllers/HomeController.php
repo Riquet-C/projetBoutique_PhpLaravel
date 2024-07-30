@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    public function index() : string {
+    public function index(){
         $date = ['message' => 'homePage'];
         return view('homepage', $date);
     }
