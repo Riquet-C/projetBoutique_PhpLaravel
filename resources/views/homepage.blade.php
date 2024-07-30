@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+    @include( ('components.header'))
+
     <title>Home Page</title>
 </head>
 <body>
