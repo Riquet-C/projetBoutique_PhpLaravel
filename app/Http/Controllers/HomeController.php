@@ -6,7 +6,8 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    public function index() : string {
-        return "Homepage";
+    public function index() {
+        $data = ['message' => 'Home page'];
+        return view('Homepage', $data);
     }
 }
