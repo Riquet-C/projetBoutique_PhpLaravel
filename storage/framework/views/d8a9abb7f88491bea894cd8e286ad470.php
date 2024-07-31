@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-    @include('components.header')
+    <?php echo $__env->make('components.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
     <title>Home Page</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="<?php echo e(asset('css/style.css')); ?>">
 </head>
 <body>
 <div class="container d-flex justify-content-center align-items-center min-vh-100">
@@ -15,7 +15,7 @@
             <h5 class="card-title">Card title</h5>
             <p class="card-text">Voici le plus beau t-shirt de France, il est souple et en plus il permet d'attirer un maximum de gens du même genre ou non !</p>
             <p>Prix: 40 €</p>
-            <a href="{{ url('/cart') }}" class="btn btn-primary">Ajouter au Panier</a>
+            <a href="<?php echo e(url('/cart')); ?>" class="btn btn-primary">Ajouter au Panier</a>
         </div>
     </div>
 </div>
@@ -25,3 +25,4 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
+<?php /**PATH C:\wamp64\www\projetgroupe\boutique-groupe\resources\views/product-details.blade.php ENDPATH**/ ?>
