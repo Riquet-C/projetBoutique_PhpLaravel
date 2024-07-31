@@ -2,14 +2,13 @@
     <div class="card marg" style="width: 18rem;">
         <img src="https://www.artmaux.com/305-large_default/t-shirt-noir-neutre.jpg" class="card-img-top" alt="...">
         <div class="card-body">
-            <h5 class="card-title">Nom du produit</h5>
-            <h6 class="mb-0"><a href="{{url('/product/{id}') }} " class="text-body"><i
-                        class="fas fa-long-arrow-alt-left me-2"></i>Fiche produit</a></h6>
-            <p class="card-text">Prix HT: 1500 €</p>
-            <p class="card-text text-decoration-line-through">Prix: 20000 €</p>
-            <p class="card-text">Réduction: 10%</p>
-            <p class="card-text">Nouveau Prix: 50000 €</p>
-            <p class="card-text">Poids: 5000 g</p>
+            <h5 class="card-title">{{$titreCart}}</h5>
+            <a href="{{ url('/product/{id}') }}" class="btn btn-primary">Fiche produit</a>
+            <p class="card-text">Prix HT: {{$prixht}} €</p>
+            <p class="card-text text-decoration-line-through">Prix: {{$prix}} €</p>
+            <p class="card-text">Réduction: {{$reduc}}</p>
+            <p class="card-text">Nouveau Prix: {{$newprix}} €</p>
+            <p class="card-text">Poids: {{$poid}} g</p>
 
             <form action="#" method="POST">
                 <label for="quantity">Quantité</label>
