@@ -30,4 +30,4 @@
     <div class="col-md-1 col-lg-1 col-xl-1 text-end">
         <a href="#!" class="text-muted"><i class="fas fa-times"></i></a>
     </div>
-</div>
+

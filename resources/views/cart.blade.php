@@ -1,4 +1,5 @@
 <x-layout>
+    <x-slot name="title">Panier</x-slot>
     <x-slot name="content">
         <section class="h-100 h-custom" style="background-color: #c9e1ff;">
             <div class="container py-5 h-100">
@@ -26,8 +27,8 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <x-cart-resum/>
                                 </div>
+                                <x-cart-resum/>
                             </div>
                         </div>
                     </div>

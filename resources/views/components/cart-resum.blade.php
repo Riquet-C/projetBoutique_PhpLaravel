@@ -34,7 +34,7 @@
             <h5>€ xxx</h5>
         </div>
 
-        <button type="button" data-mdb-button-init data-mdb-ripple-init
+        <button type="button"
                 class="btn btn-dark btn-block btn-lg"
                 data-mdb-ripple-color="dark">Commander
         </button>
