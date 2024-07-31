@@ -91,8 +91,7 @@
                                         <h5>€ xxx</h5>
                                     </div>
 
-                                    <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-dark btn-block btn-lg"
-                                             data-mdb-ripple-color="dark">Commander</button>
+                                    <x-bouton1 label="Yoooo camille le sang" url="/"/>
 
                                 </div>
                             </div>
