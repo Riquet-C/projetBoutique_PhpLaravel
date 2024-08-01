@@ -33,11 +33,6 @@
             <h5 class="text-uppercase">Prix total</h5>
             <h5>€ xxx</h5>
         </div>
-
-        <button type="button"
-                class="btn btn-dark btn-block btn-lg"
-                data-mdb-ripple-color="dark">Commander
-        </button>
-
+        <x-bouton1 url="/" label="Commander"/>
     </div>
 </div>

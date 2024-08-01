@@ -9,7 +9,7 @@
                 <p class="lead mb-5">
                     Où vous pourrez trouver tout ce qu'il faut pour votre toutou !!!!!
                 </p>
-                <a class="btn btn-dark btn-xl" href="{{url('/product')}}">Voir le catalogue</a>
+                <x-bouton1 url="/product" label="Catalogue"/>
             </div>
         </div>
     </div>
