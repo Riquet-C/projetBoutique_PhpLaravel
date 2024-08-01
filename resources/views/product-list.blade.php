@@ -1,15 +1,18 @@
 <x-layout>
     <x-slot name="title">Catalogue</x-slot>
     <x-slot name="content">
-
-
-<x-cart titreCart="Nom du eeee"
-        prixht="500"
-        prix="1500"
-        reduc="10%"
-        newprix="250000"
-        poid="150"
-/>
-
+        <div class="row m-2 justify-content-center">
+            @foreach($products as $key => $value)
+                <x-product :picture="$value->pictureUrl"
+                           :titreCart="$value->name"
+                           prixht="500"
+                           :prix="$value->price"
+                           :reduc="$value->discount"
+                           newprix="250000"
+                           :poid="$value->weight"
+                           :id="$value->id"
+                />
+            @endforeach
+        </div>
     </x-slot>
 </x-layout>

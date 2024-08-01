@@ -15,9 +15,16 @@
                                                 <h6 class="mb-0 text-muted">x produits</h6>
                                             </div>
                                             <hr class="my-4">
-                                            {{--ajouter une boucle quand on aura le code pour--}}
-                                            <x-cart-product/>
-                                            {{--                                    Fin boucle --}}
+                                            @foreach($cart as $key => $value )
+
+                                                <x-cart-product
+                                                    :picture="$value->pictureUrl"
+                                                    :name="$value->name"
+                                                    :description="$value->descProducts"
+                                                    :price="$value->price"
+                                                    :quantity="$value->quantity"
+                                                />
+                                            @endforeach
                                             <hr class="my-4">
 
                                             <div class="pt-5">
