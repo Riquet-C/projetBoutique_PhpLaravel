@@ -12,7 +12,7 @@
                     reduc="10%"
                     {{--        newprix="250000"--}}
                     poid="{{$product->weight}}"
-
+                    clean="{{$product->clean}}"
                     imageURL="{{$product->picture}}"
                     id="{{$product->id}}"
                 />
