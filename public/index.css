@@ -1,0 +1,100 @@
+@charset "UTF-8";
+/*
+    Fresh Bootstrap Table redesign by Creative Tim
+    http://www.creative-tim.com
+    @CreativeTim
+
+*/
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+@-webkit-keyframes spin {
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+    to {
+        -webkit-transform: rotate(360deg);
+    }
+}
+@-moz-keyframes spin {
+    from {
+        -moz-transform: rotate(0deg);
+    }
+    to {
+        -moz-transform: rotate(360deg);
+    }
+}
+@-ms-keyframes spin {
+    from {
+        -ms-transform: rotate(0deg);
+    }
+    to {
+        -ms-transform: rotate(360deg);
+    }
+}
+.bootstrap-table .fixed-table-toolbar::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+.bootstrap-table .fixed-table-toolbar .bs-bars,
+.bootstrap-table .fixed-table-toolbar .search,
+.bootstrap-table .fixed-table-toolbar .columns {
+    position: relative;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.bootstrap-table .fixed-table-toolbar .columns .btn-group > .btn-group {
+    display: inline-block;
+    margin-left: -1px !important;
+}
+.bootstrap-table .fixed-table-toolbar .columns .btn-group > .btn-group > .btn {
+    border-radius: 0;
+}
+.bootstrap-table .fixed-table-toolbar .columns .btn-group > .btn-group:first-child > .btn {
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+.bootstrap-table .fixed-table-toolbar .columns .btn-group > .btn-group:last-child > .btn {
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+.bootstrap-table .fixed-table-toolbar .columns .dropdown-menu {
+    text-align: left;
+    max-height: 300px;
+    overflow: auto;
+    -ms-overflow-style: scrollbar;
+    z-index: 1001;
+}
+.bootstrap-table .fixed-table-toolbar .columns label {
+    display: block;
+    padding: 3px 20px;
+    clear: both;
+    font-weight: normal;
+    line-height: 1.428571429;
+}
+.bootstrap-table .fixed-table-toolbar .columns-left {
+    margin-right: 5px;
+}
+.bootstrap-table .fixed-table-toolbar .columns-right {
+    margin-left: 5px;
+}
+.bootstrap-table .fixed-table-toolbar .pull-right .dropdown-menu {
+    right: 0;
+    left: auto;
+}
+.bootstrap-table .fixed-table-container {
+    position: relative;
+    clear: both;
+}
+.bootstrap-table .fixed-table-container .table {
+    width: 100%;
+    margin-bottom: 0 !important;
+}
+.bootstrap-table .fixed-table-container .table th,
+.bootstrap-table .fixed-table-container .table td {... (10Korestants)
