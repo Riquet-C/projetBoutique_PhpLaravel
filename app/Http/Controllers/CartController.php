@@ -17,7 +17,8 @@ class CartController extends Controller
     {
         $id = $request->id;
         $quantityCart = $request->quantity;
-        $cart = DB::select("select * from products where id = '$id'");
+        $cart[$id]=$quantityCart;
+//        $cart = DB::select("select * from products where id = '$id'");
         return view('cart', ['cart' => $cart]);
     }
 }
