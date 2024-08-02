@@ -6,8 +6,10 @@
 
             <p class="card-text">Prix HT: {{$prixht}} €</p>
             <p class="card-text text-decoration-line-through">Prix: {{$prix}} €</p>
+            @if($reduc)
             <p class="card-text">Réduction: {{$reduc}} %</p>
             <p class="card-text">Nouveau Prix: {{$newprix}} €</p>
+            @endif
             <p class="card-text">Poids: {{$poid}} g</p>
             <a href="/product/{{ $id }}" class="btn btn-primary">Fiche produit</a>
 

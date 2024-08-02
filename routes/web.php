@@ -9,6 +9,8 @@ Route::get('/', [HomeController::class, 'index'],);
 
 /* routes produits */
 Route::get('/product', [ProductController::class, 'product']);
+Route::get('/productByName', [ProductController::class, 'productByName']);
+Route::get('/productByPrice', [ProductController::class, 'productByPrice']);
 
 Route::get('/product/{id}', [ProductController::class, 'productId']);
 

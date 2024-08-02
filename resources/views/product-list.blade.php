@@ -5,10 +5,10 @@
             @foreach($products as $key => $value)
                 <x-product :picture="$value->pictureUrl"
                            :titreCart="$value->name"
-                           prixht="500"
-                           :prix="$value->price"
+                           :prixht="$value->priceExcludingVAT($value->price)"
+                           :prix="$value->formatPrice($value->price)"
                            :reduc="$value->discount"
-                           newprix="250000"
+                           :newprix="$value->discountedPrice($value->price, $value->discount)"
                            :poid="$value->weight"
                            :id="$value->id"
                 />
