@@ -8,19 +8,29 @@ use Illuminate\Database\Eloquent\Model;
 class product extends Model
 {
     use HasFactory;
-    function formatPrice($price)
+    public $timestamps = false;
+
+    protected $fillable = [
+        'name',
+        'pictureUrl',
+        'descProducts',
+        'price',
+        'weight',
+        'discount',
+        'categorieId'
+    ];
+
+    function formatPrice($price): float|int
     {
-        return $price = $price / 100;
+        return $price / 100;
     }
-    function priceExcludingVAT($price)
+    function priceExcludingVAT($price): float|int
     {
         $TVA = 20;
-        $prixHT = (100 * $price/100) / (100 + $TVA);
-        return $prixHT;
+        return (100 * $price/100) / (100 + $TVA);
     }
-    function discountedPrice($prix, $remise)
+    function discountedPrice($price, $discount): float|int
     {
-        $prixDiscount = (($prix / 100) * (100 - $remise)) / 100;
-        return $prixDiscount;
+        return (($price / 100) * (100 - $discount)) / 100;
     }
 }

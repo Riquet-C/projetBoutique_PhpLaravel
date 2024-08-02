@@ -30,7 +30,8 @@ class ProductController extends Controller
     public function productId($id)
     {
 //        $product = DB::select("select * from products where id = $id");
-        $product = product::where('id', $id)->get();
-        return view('product-details', ['product' => $product[0]]);
+//        $product = product::where('id', $id)->get();
+        $product = product::find($id);
+        return view('product-details', ['product' => $product]);
     }
 }
