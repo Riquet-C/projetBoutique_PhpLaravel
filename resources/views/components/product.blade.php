@@ -11,6 +11,13 @@
 {{--            <p class="card-text">Nouveau Prix: {{$newprix}} €</p>--}}
             <p class="card-text">Poids: {{$poid}} g</p>
 
+            @if ($clean)
+                <p>Propre</p>
+
+            @else
+                <p>Puant</p>
+            @endif
+
             <form action="#" method="POST">
                 <label for="quantity">Quantité</label>
                 <input type=number name="quantity" min="0" max="100" step="1" value="0"> *
