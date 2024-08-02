@@ -1,7 +1,7 @@
 <x-layout>
     <x-slot name="title">Catalogue</x-slot>
-    <x-slot name="content">
-        <div class="row m-2 justify-content-center">
+    <x-slot name="content" >
+        <div class=" row justify-content-center">
             @foreach($products as $key => $value)
                 <x-product :picture="$value->pictureUrl"
                            :titreCart="$value->name"

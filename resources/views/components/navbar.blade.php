@@ -3,7 +3,9 @@
         <!-- Boutons à gauche -->
         <div class="d-flex">
             <a class="nav-link" href="{{ url('/product') }}">Product</a>
-            <a class="nav-link" href="{{ url('/product/{id}') }}">Produit spécifique</a>
+            <a class="nav-link" href="{{ url('/productByName') }}">ProductByName</a>
+            <a class="nav-link" href="{{ url('/productByPrice') }}">ProductByPrice</a>
+            <a class="nav-link" href="{{ url('/backoffice') }}">Administrateur</a>
         </div>
 
         <!-- Titre centré -->

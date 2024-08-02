@@ -1,6 +1,6 @@
 <section class="py-5">
-    <div class="container">
-        <div class="row gx-5">
+    <div class="container  ">
+        <div class="row gx-5 ">
             {{--                    image --}}
             <aside class="col-lg-6">
                 <div class="border rounded-4 mb-3 d-flex justify-content-center">

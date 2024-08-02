@@ -1,8 +1,8 @@
 <x-layout>
-    <x-slot name="title">Accueil</x-slot>
-    <x-slot name="content">
+    <x-slot:title>Accueil</x-slot>
+    <x-slot:content>
 <section class="content-section bg-light vh-100" id="about">
-    <div class="container px-4 px-lg-5 text-center align-content-center">
+    <div class="container  px-4 px-lg-5 text-center align-content-center">
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="">
                 <h2>Bienvenue chez Petslife!</h2>
