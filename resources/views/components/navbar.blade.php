@@ -2,8 +2,10 @@
     <div class="container-fluid">
         <!-- Boutons à gauche -->
         <div class="d-flex">
-            <a class="nav-link" href="{{ url('/product') }}">Product</a>
-            <a class="nav-link" href="{{ url('/product/{id}') }}">Produit spécifique</a>
+            <a class="nav-link" href="{{ url('/products') }}">Product</a>
+            <a class="nav-link" href="{{ url('/product-listNom') }}">Liste Nom</a>
+            <a class="nav-link" href="{{ url('/product-listPrix') }}">Liste prix</a>
+            <a class="nav-link" href="{{ url('/backoffice') }}">Backoffice</a>
         </div>
 
         <!-- Titre centré -->
