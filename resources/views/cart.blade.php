@@ -12,19 +12,18 @@
                                         <div class="p-5">
                                             <div class="d-flex justify-content-between align-items-center mb-5">
                                                 <h1 class="fw-bold mb-0">Panier</h1>
-                                                <h6 class="mb-0 text-muted">{{$cart[1]}} produits</h6>
+                                                <h6 class="mb-0 text-muted">produits</h6>
                                             </div>
                                             <hr class="my-4">
-                                            @php(var_dump($cart))
-                                            @foreach($cart as $key => $value )
-
-{{--                                                <x-cart-product--}}
-{{--                                                    :picture="$products->pictureUrl"--}}
-{{--                                                    :name="$products->name"--}}
-{{--                                                    :description="$products->descProducts"--}}
-{{--                                                    :price="$products->price"--}}
-{{--                                                    :quantity="$key"--}}
-{{--                                                />--}}
+                                            @foreach($cart as $id => $details)
+                                                <x-cart-product
+                                                    :picture="$details['picture']"
+                                                    :name="$details['name']"
+                                                    :description="$details['description']"
+                                                    :price="$details['price']"
+                                                    :quantity="$details['quantity']"
+                                                    :id="$id"
+                                                />
                                             @endforeach
                                             <hr class="my-4">
 
@@ -36,8 +35,8 @@
                                         </div>
                                     </div>
                                 </div>
-                                <x-cart-resum/>
                             </div>
+                            <x-cart-resum/>
                         </div>
                     </div>
                 </div>
