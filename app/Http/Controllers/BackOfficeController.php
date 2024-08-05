@@ -15,18 +15,28 @@ class BackOfficeController extends Controller
 
     public function delete($id)
     {
-        $productdelete = products::where('id', $id)->delete();
-        return view('backOffice-delete', ['products' => $productdelete]);
+        $productDelete = products::where('id', $id)->delete();
+        return view('backOffice-delete', ['products' => $productDelete]);
     }
 
     public function modifyForm($id)
-    {@
+    {
         $product = products::find($id);
         return view('backOffice-modify', ['products' => $product]);
     }
 
     public function modify(Request $request, $id)
     {
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'pictureUrl' => 'required',
+            'descProducts' => 'required|string|max:255',
+            'price' => 'required|numeric|min:0',
+            'weight' => 'required|numeric|min:0',
+            'discount' => 'nullable|integer|min:0|max:100',
+            'categoryId' => 'required|exists:categories,id',
+        ]);
+
         $product = products::find($id);
         $product->update(
             [
@@ -36,7 +46,7 @@ class BackOfficeController extends Controller
                 'price' => $request->input('price'),
                 'weight' => $request->input('weight'),
                 'discount' => $request->input('discount'),
-                'categorieId' => '1',
+                'categoryId' => $request->input('categoryId'),
             ]
         );
         return view('backOffice-modifySucces', ['products' => $product]);
@@ -49,16 +59,26 @@ class BackOfficeController extends Controller
 
     public function add(Request $request)
     {
-        $productadd = products::create([
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'pictureUrl' => 'required',
+            'descProducts' => 'required|string|max:255',
+            'price' => 'required|numeric|min:0',
+            'weight' => 'required|numeric|min:0',
+            'discount' => 'nullable|integer|min:0|max:100',
+            'categoryId' => 'required',
+        ]);
+
+        $productAdd = products::create([
             'name' => $request->input('name'),
             'pictureUrl' => $request->input('pictureUrl'),
             'descProducts' => $request->input('descProducts'),
             'price' => $request->input('price'),
             'weight' => $request->input('weight'),
             'discount' => $request->input('discount'),
-            'categorieId' => '1',
+            'categoryId' => $request->input('categoryId'),
         ]);
-        return view('backOffice-addSucces', ['products' => $productadd]);
+        return view('backOffice-addSucces', ['products' => $productAdd]);
     }
 
 }
