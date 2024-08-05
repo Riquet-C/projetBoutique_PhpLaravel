@@ -17,7 +17,8 @@ Route::get('/product/{id}', [ProductController::class, 'productId']);
 
 /* routes panier  */
 Route::get('/cart', [CartController::class, 'cart'])->name('cart');
-Route::post('/cart/add', [CartController::class, 'store'])->name('cart.store');;
+Route::post('/cart/add', [CartController::class, 'addFromCart'])->name('cart.add');;
+Route::get('/cart/remove/{id}', [CartController::class, 'removeFromCart'])->name('cart.remove');
 
 /* Admin */
 Route::get('/backoffice', [BackOfficeController::class, 'backOffice'])->name('backOffice');

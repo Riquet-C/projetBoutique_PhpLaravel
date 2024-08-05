@@ -13,7 +13,7 @@
             <p class="card-text">Poids: {{ $poid }} g</p>
             <a href="/product/{{ $id }}" class="btn btn-primary mt-auto">Fiche produit</a>
             <hr>
-            <form action="{{ route('cart.store') }}" method="POST">
+            <form action="{{ route('cart.add') }}" method="POST">
                 @csrf
                 <div class="form-group">
                     <label for="quantity">Quantité</label>
