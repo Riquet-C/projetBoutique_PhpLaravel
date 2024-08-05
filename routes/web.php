@@ -20,7 +20,7 @@ Route::get('/products/{id}', [ProductController::class, 'productsID']);
 //route panier
 Route::get('/cart', [CartController::class, 'cart'])->name('cart');
 
-//route::post('/cart/ajouter', [CartController::class, 'ajouterPanier'])->name('ajouterPanier');
+route::post('/cart/ajouter', [CartController::class, 'ajouterPanier'])->name('ajouterPanier');
 
 //route backoffice
 Route::get('/backoffice', [BackofficeController::class, 'backoffice']);

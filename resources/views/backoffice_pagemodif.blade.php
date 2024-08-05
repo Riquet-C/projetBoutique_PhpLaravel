@@ -12,8 +12,10 @@
 
                 <!-- Registeration Form -->
                 <div class="col-md-7 col-lg-6 ml-auto">
-                    <form action="{{route('modifier',['id'=>"$products-> id"])}}" method="post">
-                        {{csrf_field()}}
+
+                        <form action="{{ route('modifier', ['id' => $product->id]) }}" method="POST">
+                            @csrf
+
                         <div class="row">
                             <!-- Nom produit -->
                             <div class="input-group col-lg-6 mb-4">
@@ -22,7 +24,7 @@
                                 <i class="fa fa-user text-muted"></i>
                             </span>
                                 </div>
-                                <input id="" type="text" name="nom" placeholder="Nom du produit" class="form-control bg-white border-left-0 border-md">
+                                <input id="nom" type="text" name="nom" placeholder="Nom du produit" class="form-control bg-white border-left-0 border-md">
                             </div>
 
                             <!-- Picture URL -->
@@ -32,7 +34,7 @@
                                 <i class="fa fa-user text-muted"></i>
                             </span>
                                 </div>
-                                <input id="" type="text" name="image" placeholder="Lien Image" class="form-control bg-white border-left-0 border-md">
+                                <input id="image" type="text" name="image" placeholder="Lien Image" class="form-control bg-white border-left-0 border-md">
                             </div>
 
                             <!-- desc produit -->
@@ -42,7 +44,7 @@
                                 <i class="fa fa-envelope text-muted"></i>
                             </span>
                                 </div>
-                                <input id="" type="text" name="description" placeholder="Description Produit" class="form-control bg-white border-left-0 border-md">
+                                <input id="description" type="text" name="description" placeholder="Description Produit" class="form-control bg-white border-left-0 border-md">
                             </div>
 
                             <!-- price -->
@@ -52,7 +54,7 @@
                                 <i class="fa fa-user text-muted"></i>
                             </span>
                                 </div>
-                                <input id="" type="number" name="prix" placeholder="Prix du produit" class="form-control bg-white border-left-0 border-md">
+                                <input id="prix" type="number" name="prix" placeholder="Prix du produit" class="form-control bg-white border-left-0 border-md">
                             </div>
 
 
@@ -63,7 +65,7 @@
                                 <i class="fa fa-user text-muted"></i>
                             </span>
                                 </div>
-                                <input id="" type="text" name="poids" placeholder="Poids du produit" class="form-control bg-white border-left-0 border-md">
+                                <input id="poids" type="text" name="poids" placeholder="Poids du produit" class="form-control bg-white border-left-0 border-md">
                             </div>
 
                             <!-- Discount -->
@@ -73,7 +75,7 @@
                                 <i class="fa fa-user text-muted"></i>
                             </span>
                                 </div>
-                                <input id="" type="number" name="discount" placeholder="Remise à appliquer" class="form-control bg-white border-left-0 border-md">
+                                <input id="discount" type="number" name="discount" placeholder="Remise à appliquer" class="form-control bg-white border-left-0 border-md">
                             </div>
                             <!-- Auteur -->
                             <div class="input-group col-lg-6 mb-4">
@@ -82,13 +84,13 @@
                                 <i class="fa fa-user text-muted"></i>
                             </span>
                                 </div>
-                                <input id="" type="text" name="auteur" placeholder="Nom de l'auteur" class="form-control bg-white border-left-0 border-md">
+                                <input id="auteur" type="text" name="auteur" placeholder="Nom de l'auteur" class="form-control bg-white border-left-0 border-md">
                             </div>
 
                             <!-- Submit Button -->
                             <div class="form-group col-lg-12 mx-auto mb-0">
 
-                                <button type="submit" class="btn btn-primary">ajouter</button>
+                                <button type="submit" class="btn btn-primary">Modifier</button>
                             </div>
 
                         </div>

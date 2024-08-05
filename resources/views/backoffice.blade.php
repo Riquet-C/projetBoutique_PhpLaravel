@@ -19,6 +19,7 @@
                             </thead>
                             <tbody>
                             @foreach($products as $key)
+
                                 <tr>
                                     <td>{{$key->id}}</td>
                                     <td>{{$key->nom}}</td>
