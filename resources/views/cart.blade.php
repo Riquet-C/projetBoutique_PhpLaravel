@@ -15,9 +15,15 @@
                                                 <h6 class="mb-0 text-muted">x produits</h6>
                                             </div>
                                             <hr class="my-4">
-                                            {{--ajouter une boucle quand on aura le code pour--}}
-                                            <x-cart-product/>
-                                            {{--                                    Fin boucle --}}
+                                            @foreach()
+                                            <x-cart-product
+
+
+
+
+
+                                            />
+                                            @endforeach
                                             <hr class="my-4">
 
                                             <div class="pt-5">

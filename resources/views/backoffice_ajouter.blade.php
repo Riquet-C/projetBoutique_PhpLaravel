@@ -12,7 +12,8 @@
 
                 <!-- Registeration Form -->
                 <div class="col-md-7 col-lg-6 ml-auto">
-                    <form action="{{route('add')}}" method="post">
+                    <form action="{{route('valider')}}" method="post">
+                        {{csrf_field()}}
                         <div class="row">
                             <!-- Nom produit -->
                             <div class="input-group col-lg-6 mb-4">
@@ -21,7 +22,7 @@
                                 <i class="fa fa-user text-muted"></i>
                             </span>
                                 </div>
-                                <input id="" type="text" name="name" placeholder="Nom du produit" class="form-control bg-white border-left-0 border-md">
+                                <input id="" type="text" name="nom" placeholder="Nom du produit" class="form-control bg-white border-left-0 border-md">
                             </div>
 
                             <!-- Picture URL -->
@@ -31,7 +32,7 @@
                                 <i class="fa fa-user text-muted"></i>
                             </span>
                                 </div>
-                                <input id="" type="text" name="pictureUrl" placeholder="Lien Image" class="form-control bg-white border-left-0 border-md">
+                                <input id="" type="text" name="image" placeholder="Lien Image" class="form-control bg-white border-left-0 border-md">
                             </div>
 
                             <!-- desc produit -->
@@ -41,7 +42,7 @@
                                 <i class="fa fa-envelope text-muted"></i>
                             </span>
                                 </div>
-                                <input id="email" type="email" name="descProducts" placeholder="Description Produit" class="form-control bg-white border-left-0 border-md">
+                                <input id="email" type="email" name="description" placeholder="Description Produit" class="form-control bg-white border-left-0 border-md">
                             </div>
 
                             <!-- price -->
@@ -51,7 +52,7 @@
                                 <i class="fa fa-user text-muted"></i>
                             </span>
                                 </div>
-                                <input id="" type="number" name="price" placeholder="Prix du produit" class="form-control bg-white border-left-0 border-md">
+                                <input id="" type="number" name="prix" placeholder="Prix du produit" class="form-control bg-white border-left-0 border-md">
                             </div>
 
 
@@ -62,7 +63,7 @@
                                 <i class="fa fa-user text-muted"></i>
                             </span>
                                 </div>
-                                <input id="" type="text" name="weight" placeholder="Poids du produit" class="form-control bg-white border-left-0 border-md">
+                                <input id="" type="text" name="poids" placeholder="Poids du produit" class="form-control bg-white border-left-0 border-md">
                             </div>
 
                             <!-- Discount -->
@@ -77,9 +78,8 @@
 
                             <!-- Submit Button -->
                             <div class="form-group col-lg-12 mx-auto mb-0">
-                                <a href="{{route('add')}}" class="btn btn-primary btn-block py-2">
-                                    <span class="font-weight-bold">Créer produit</span>
-                                </a>
+
+                              <button type="submit" class="btn btn-primary">ajouter</button>
                             </div>
 
                         </div>

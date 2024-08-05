@@ -26,16 +26,20 @@
                                     <td>{{$key->description}}</td>
                                     <td><img src="{{$key->image}}" alt="Product Image" class="img-thumbnail" style="max-width: 100px;"></td>
                                     <td>
-                                        <a href="/backoffice/{{$key->id}}/delete" class="btn btn-danger btn-sm">Supprimer</a>
-                                        <a href="/backoffice/{{$key->id}}/modify" class="btn btn-warning btn-sm">Modifier</a>
+                                        <a href="/backoffice/{{$key->id}}/supprimer" class="btn btn-danger btn-sm">Supprimer</a>
+                                        <a href="/backoffice/{{$key->id}}/modifier" class="btn btn-warning btn-sm">Modifier</a>
                                     </td>
                                 </tr>
                             @endforeach
+
+
                             </tbody>
                         </table>
                     </div>
                 </div>
             </div>
+            <a href= "{{route('ajouter')}}" class="btn btn-warning btn-sm">Ajouter un produit !</a>
         </div>
+
     </x-slot>
 </x-layout>
