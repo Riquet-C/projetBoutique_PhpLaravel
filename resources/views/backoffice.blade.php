@@ -27,7 +27,7 @@
                                     <td><img src="{{$key->image}}" alt="Product Image" class="img-thumbnail" style="max-width: 100px;"></td>
                                     <td>
                                         <a href="/backoffice/{{$key->id}}/supprimer" class="btn btn-danger btn-sm">Supprimer</a>
-                                        <a href="/backoffice/{{$key->id}}/modifier" class="btn btn-warning btn-sm">Modifier</a>
+                                        <a href="/backoffice/{{$key->id}}/pagemodif" class="btn btn-warning btn-sm">Modifier</a>
                                     </td>
                                 </tr>
                             @endforeach

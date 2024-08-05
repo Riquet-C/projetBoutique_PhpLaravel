@@ -12,7 +12,7 @@
 
                 <!-- Registeration Form -->
                 <div class="col-md-7 col-lg-6 ml-auto">
-                    <form action="{{route('valider')}}" method="post">
+                    <form action="{{route('modifier',['id'=>"$products-> id"])}}" method="post">
                         {{csrf_field()}}
                         <div class="row">
                             <!-- Nom produit -->
@@ -88,7 +88,7 @@
                             <!-- Submit Button -->
                             <div class="form-group col-lg-12 mx-auto mb-0">
 
-                              <button type="submit" class="btn btn-primary">ajouter</button>
+                                <button type="submit" class="btn btn-primary">ajouter</button>
                             </div>
 
                         </div>

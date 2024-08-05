@@ -25,10 +25,12 @@ Route::get('/cart', [CartController::class, 'cart'])->name('cart');
 //route backoffice
 Route::get('/backoffice', [BackofficeController::class, 'backoffice']);
 
-Route::get('/backoffice/modifier', [BackofficeController::class, 'modifier'])->name('modifier');
+Route::get('/backoffice/{id}/pagemodif', [BackofficeController::class, 'pagemodif'])->name('pagemodif');
+
+Route::post('/backoffice/{id}/modifier', [BackofficeController::class, 'modifier']) ->name('modifier');
 
 Route::get('/backoffice/ajouter', [BackofficeController::class, 'ajouter']) ->name('ajouter');
 
 Route::post('/backoffice/valider', [BackofficeController::class, 'valider']) ->name('valider');
 
-Route::get('/backoffice/supprimer', [BackofficeController::class, 'supprimer'])->name('supprimer');
+Route::get('/backoffice/{id}/supprimer', [BackofficeController::class, 'delete'])->name('delete');
