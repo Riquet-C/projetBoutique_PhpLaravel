@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\Products;
@@ -33,5 +34,11 @@ class ProductController extends Controller
 //        $products = products::where('id', $id)->get();
         $products = products::find($id);
         return view('product-details', ['products' => $products]);
+    }
+
+    public function productByCategories()
+    {
+        $categories = Category::with('products')->get();
+        return view('product-listCategory', compact('categories'));
     }
 }
