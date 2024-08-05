@@ -9,7 +9,7 @@
                 <p class="lead mb-5">
                     Où vous pourrez trouver tout ce qu'il faut pour votre toutou !!!!!
                 </p>
-                <x-bouton1 url="/product" label="Catalogue"/>
+                <x-bouton1 url="/products" label="Catalogue"/>
             </div>
         </div>
     </div>

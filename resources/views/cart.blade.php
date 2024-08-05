@@ -28,7 +28,7 @@
                                             <hr class="my-4">
 
                                             <div class="pt-5">
-                                                <h6 class="mb-0"><a href="{{ url('/product') }}" class="text-body">
+                                                <h6 class="mb-0"><a href="{{ url('/products') }}" class="text-body">
                                                         <i class="fas fa-long-arrow-alt-left me-2"></i>Retour au
                                                         catalogue</a></h6>
                                             </div>

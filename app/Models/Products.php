@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class product extends Model
+class Products extends Model
 {
     use HasFactory;
     public $timestamps = false;
@@ -17,9 +17,13 @@ class product extends Model
         'price',
         'weight',
         'discount',
-        'categorieId'
+        'categoryId'
     ];
 
+    public function category()
+    {
+        return $this->belongsTo(Category::class, 'categoryId');
+    }
     function formatPrice($price): float|int
     {
         return $price / 100;

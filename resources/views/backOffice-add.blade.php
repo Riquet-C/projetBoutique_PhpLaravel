@@ -25,6 +25,7 @@
                                 <input id="" type="text" name="name" placeholder="Nom du produit" class="form-control bg-white border-left-0 border-md">
                             </div>
 
+
                             <!-- Picture URL -->
                             <div class="input-group col-lg-6 mb-4">
                                 <div class="input-group-prepend">

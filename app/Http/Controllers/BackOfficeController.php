@@ -2,32 +2,32 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\product;
+use App\Models\Products;
 use Illuminate\Http\Request;
 
 class BackOfficeController extends Controller
 {
     public function backOffice()
     {
-        $products = product::all();
+        $products = products::all();
         return view('backOffice', ['products' => $products]);
     }
 
     public function delete($id)
     {
-        $productdelete = product::where('id', $id)->delete();
-        return view('backOffice-delete', ['product' => $productdelete]);
+        $productdelete = products::where('id', $id)->delete();
+        return view('backOffice-delete', ['products' => $productdelete]);
     }
 
     public function modifyForm($id)
-    {
-        $product = product::find($id);
-        return view('backOffice-modify', ['product' => $product]);
+    {@
+        $product = products::find($id);
+        return view('backOffice-modify', ['products' => $product]);
     }
 
     public function modify(Request $request, $id)
     {
-        $product = product::find($id);
+        $product = products::find($id);
         $product->update(
             [
                 'name' => $request->input('name'),
@@ -39,7 +39,7 @@ class BackOfficeController extends Controller
                 'categorieId' => '1',
             ]
         );
-        return view('backOffice-modifySucces', ['product' => $product]);
+        return view('backOffice-modifySucces', ['products' => $product]);
     }
 
     public function addForm()
@@ -49,7 +49,7 @@ class BackOfficeController extends Controller
 
     public function add(Request $request)
     {
-        $productadd = product::create([
+        $productadd = products::create([
             'name' => $request->input('name'),
             'pictureUrl' => $request->input('pictureUrl'),
             'descProducts' => $request->input('descProducts'),
@@ -58,7 +58,7 @@ class BackOfficeController extends Controller
             'discount' => $request->input('discount'),
             'categorieId' => '1',
         ]);
-        return view('backOffice-addSucces', ['product' => $productadd]);
+        return view('backOffice-addSucces', ['products' => $productadd]);
     }
 
 }

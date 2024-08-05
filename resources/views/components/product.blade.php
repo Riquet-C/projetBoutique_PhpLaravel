@@ -11,7 +11,7 @@
                 <p class="card-text font-weight-bold">Nouveau Prix: {{ $newprix }} €</p>
             @endif
             <p class="card-text">Poids: {{ $poid }} g</p>
-            <a href="/product/{{ $id }}" class="btn btn-primary mt-auto">Fiche produit</a>
+            <a href="/products/{{ $id }}" class="btn btn-primary mt-auto">Fiche produit</a>
             <hr>
             <form action="{{ route('cart.add') }}" method="POST">
                 @csrf

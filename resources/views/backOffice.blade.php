@@ -1,3 +1,4 @@
+@php use App\Models\Products; @endphp
 <x-layout>
     <x-slot:title>Administrateur</x-slot:title>
     <x-slot:content>
@@ -12,6 +13,7 @@
                             <th data-field="price" data-sortable="true">prix (en centimes)</th>
                             <th data-field="description" data-sortable="true">description</th>
                             <th data-field="image">Image</th>
+                            <th data-field="category">CategoryId</th>
                             <th data-field="actions" data-formatter="operateFormatter" data-events="operateEvents">
                                 Actions
                             </th>
@@ -24,6 +26,7 @@
                                     <td>{{$key->price}}</td>
                                     <td>{{$key->descProducts}}</td>
                                     <td>{{$key->pictureUrl}}</td>
+                                    <td>{{$key->categoryId}}</td>
                                     <td>
                                         <a href="/backoffice/{{$key->id}}/delete">Supprimer</a> /
                                         <a href="/backoffice/{{$key->id}}/modify">Modifier</a>

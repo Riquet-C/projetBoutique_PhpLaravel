@@ -9,11 +9,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index'],);
 
 /* routes produits */
-Route::get('/product', [ProductController::class, 'product']);
+Route::get('/products', [ProductController::class, 'product']);
 Route::get('/productByName', [ProductController::class, 'productByName']);
 Route::get('/productByPrice', [ProductController::class, 'productByPrice']);
 
-Route::get('/product/{id}', [ProductController::class, 'productId']);
+Route::get('/products/{id}', [ProductController::class, 'productId']);
 
 /* routes panier  */
 Route::get('/cart', [CartController::class, 'cart'])->name('cart');
