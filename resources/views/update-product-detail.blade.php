@@ -12,45 +12,36 @@
                                     {{ csrf_field() }}
                                     @method('PUT')
                                     <div class="form-group">
-                                        id = "{{$product->id}}"
-
-                                        <input type="text" class="form-control" name="id" id="id" placeholder="id">
+                                        <label for="id">ID</label>
+                                        <input type="text" class="form-control" name="id" value="{{$product->id}}">
                                     </div>
                                     <div class="form-group">
-                                        categorie = "{{$product->categorie}}"
-
-                                        <input type="text" class="form-control" name="categorie" id="categorie" placeholder="...">
+                                        <label for="categorie">Categorie</label>
+                                        <input type="text" class="form-control" name="categorie" id="categorie" value="{{$product->categorie}}">
                                     </div>
                                     <div class="form-group">
-                                        name = "{{$product->name}}"
-
-                                        <input type="text" class="form-control" name="name" id="name" placeholder="...">
+                                        <label for="name">Nom</label>
+                                        <input type="text" class="form-control" name="name" value="{{$product->name}}">
                                     </div>
                                     <div class="form-group">
-                                        prix = "{{$product->price}}"
-
-                                        <input type="text" class="form-control" name="price" id="prix" placeholder="... cent">
+                                        <label for="price">Prix</label>
+                                        <input type="text" class="form-control" name="price" value="{{$product->price}} cent">
                                     </div>
                                     <div class="form-group">
-                                        poid = "{{$product->weight}}"
-
-                                        <input type="text" class="form-control" name="weight" id="poid" placeholder="... g">
+                                        <label for="weight">Poid</label>
+                                        <input type="text" class="form-control" name="weight"  value="{{$product->weight}}">
                                     </div>
                                     <div class="form-group">
-                                        reduc = "{{$product->discount}}"
-
-                                        <input type="text" class="form-control" name="discount" id="reduction" placeholder="... %">
+                                        <label for="discount">Reduc</label>
+                                        <input type="text" class="form-control" name="discount"  value="{{$product->discount}}">
                                     </div>
                                     <div class="form-group">
-                                        <img src="{{$product->picture}}"><br>
-                                        imageURL = "{{$product->picture}}"
-
-                                        <input type="url" class="form-control" name="picture" id="image" placeholder="Url">
+                                        <label for="picture">Image</label>
+                                        <input type="url" class="form-control" name="picture"  value="{{$product->picture}}">
                                     </div>
                                     <div class="form-group">
-                                        clean = "{{$product->clean}}"
-
-                                        <input type="text" class="form-control" name="clean" id="clean" placeholder="1 ou 0">
+                                        <label for="clean">Propre</label>
+                                        <input type="text" class="form-control" name="clean" id="clean" value="{{$product->clean}}">
                                     </div>
                             </div>
                             <button type="submit" class="btn btn-primary">Update</button>

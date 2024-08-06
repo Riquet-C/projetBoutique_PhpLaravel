@@ -29,4 +29,4 @@ Route::get('/backoffice/update/{id}', [BackOfficeController::class, 'productId']
 Route::put('/backoffice/update/{id}', [BackOfficeController::class, 'updateProduct'])->name('updateproduit');
 
 
-Route::get('commande', [CommandeController::class, 'functionname'])->name('commande');
+Route::get('commande', [CommandeController::class, 'command'])->name('commande');
