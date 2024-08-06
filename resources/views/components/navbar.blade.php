@@ -7,6 +7,7 @@
             <a class="nav-link" href="{{ url('/productbyprice') }}">Product By Price</a>
             <a class="nav-link" href="{{ url('/product/{id}') }}">Produit spécifique</a>
             <a class="nav-link" href="{{ url('/backoffice') }}">Le Derrière Bureau</a>
+            <a class="nav-link" href="{{ url('/commande') }}">Commandes</a>
         </div>
 
         <!-- Titre centré -->

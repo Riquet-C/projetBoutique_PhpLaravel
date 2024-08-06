@@ -11,4 +11,9 @@ class Product extends Model
     protected $guarded=[];
     public $timestamps = false;
 
+    public function order(){
+
+        return $this->belongsTo(Orders::class);
+    }
+
 }

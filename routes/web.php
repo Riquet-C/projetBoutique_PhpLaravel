@@ -27,3 +27,6 @@ Route::delete('/backoffice/delete/{id}', [BackOfficeController::class, 'destroy'
 
 Route::get('/backoffice/update/{id}', [BackOfficeController::class, 'productId'])->name('updateproduit');
 Route::put('/backoffice/update/{id}', [BackOfficeController::class, 'updateProduct'])->name('updateproduit');
+
+
+Route::get('commande', [CommandeController::class, 'functionname'])->name('commande');
