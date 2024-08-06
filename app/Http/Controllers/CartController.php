@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 class CartController extends Controller
 {
     public function cart(){
-        $date = ['message' => 'panier'];
+        $product = ['message' => 'panier'];
         return view('cart', $date);
     }
 }
