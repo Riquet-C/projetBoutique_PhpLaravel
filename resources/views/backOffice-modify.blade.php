@@ -110,9 +110,12 @@
 
                             <!-- Submit Button -->
                             <div class="form-group col-lg-12 mx-auto mb-0">
-                                <button type="submit" class="btn btn-primary">Modifier</button>
+                                <form method="POST" action="/backoffice/{{$products->id}}/modify">
+                                    @csrf
+                                    @method('PUT')
+                                    <button type="submit">Update</button>
+                                </form>
                             </div>
-
                         </div>
                     </form>
 

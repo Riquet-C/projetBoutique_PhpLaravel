@@ -28,7 +28,11 @@
                                     <td>{{$key->pictureUrl}}</td>
                                     <td>{{$key->categoryId}}</td>
                                     <td>
-                                        <a href="/backoffice/{{$key->id}}/delete">Supprimer</a> /
+                                        <form action="/backoffice/{{$key->id}}/delete" method="POST" >
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit">Delete</button>
+                                        </form>
                                         <a href="/backoffice/{{$key->id}}/modify">Modifier</a>
                                     </td>
                                 </tr>

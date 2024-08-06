@@ -4,48 +4,45 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Products;
+use App\Models\Cart;
 use Illuminate\Support\Facades\DB;
 
 class CartController extends Controller
 {
     public function cart()
     {
-        $cart = session()->get('cart', []);
-        return view('cart', ['cart' => $cart]);
+
     }
 
-    public function addFromCart(Request $request)
+    public function addToCart(Request $request)
     {
-        $id = $request->id;
-        $product = products::find($id);
-        $cart = session()->get('cart', []);
+        /* potentiellement ajouter une validation en fonction de la quantité disponible */
+        $cart = Cart::with('products')->where('user_id', '=', 1)->first();
 
-        if (isset($cart[$id])) {
-            $cart[$id]['quantity']++;
-        } else {
-            $cart[$id] = [
-                "name" => $product->name,
-                "picture" => $product->pictureUrl,
-                "description" => $product->descProducts,
-                "quantity" => 1,
-                "price" => $product->price
-            ];
-        }
-        session()->put('cart', $cart);
+        $product = Products::find($request->input('id'));
 
-        return view('cart', ['cart' => $cart]);
+        $cart->products()->attach($product->id, ['quantity' => $request->input('quantity')]);
+
+        $cart->calculateTotal();
+
+        return redirect()->route('cart')->with('success', 'Produit ajouté au panier!');
+
     }
 
-    public function removeFromCart($id)
+    public function show()
     {
-        $cart = session()->get('cart', []);
+        $cart = Cart::with('products')->where('user_id', '=', 1)->first();
 
-        if (isset($cart[$id])) {
-            unset($cart[$id]);
-            session()->put('cart', $cart);
-        }
-
-        return view('cart', ['cart' => $cart])->with('success', 'Produit retiré du panier !');
+        return view('cart', compact('cart'));
     }
+
+
+    public
+    function removeFromCart($id)
+    {
+
+
+    }
+
 
 }

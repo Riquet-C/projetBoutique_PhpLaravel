@@ -9,35 +9,27 @@ class BackOfficeController extends Controller
 {
     public function backOffice()
     {
-        $products = products::all();
+        $products = Products::all();
         return view('backOffice', ['products' => $products]);
     }
 
     public function delete($id)
     {
-        $productDelete = products::where('id', $id)->delete();
+        $productDelete = Products::where('id', $id)->delete();
         return view('backOffice-delete', ['products' => $productDelete]);
     }
 
     public function modifyForm($id)
     {
-        $product = products::find($id);
+        $product = Products::findOrFail($id);
         return view('backOffice-modify', ['products' => $product]);
     }
 
     public function modify(Request $request, $id)
     {
-        $validated = $request->validate([
-            'name' => 'required|string|max:255',
-            'pictureUrl' => 'required',
-            'descProducts' => 'required|string|max:255',
-            'price' => 'required|numeric|min:0',
-            'weight' => 'required|numeric|min:0',
-            'discount' => 'nullable|integer|min:0|max:100',
-            'categoryId' => 'required|exists:categories,id',
-        ]);
+        $this->validateProductData($request);
 
-        $product = products::find($id);
+        $product = Products::findOrFail($id);
         $product->update(
             [
                 'name' => $request->input('name'),
@@ -59,15 +51,7 @@ class BackOfficeController extends Controller
 
     public function add(Request $request)
     {
-        $validated = $request->validate([
-            'name' => 'required|string|max:255',
-            'pictureUrl' => 'required',
-            'descProducts' => 'required|string|max:255',
-            'price' => 'required|numeric|min:0',
-            'weight' => 'required|numeric|min:0',
-            'discount' => 'nullable|integer|min:0|max:100',
-            'categoryId' => 'required',
-        ]);
+        $this->validateProductData($request);
 
         $productAdd = products::create([
             'name' => $request->input('name'),
@@ -79,6 +63,23 @@ class BackOfficeController extends Controller
             'categoryId' => $request->input('categoryId'),
         ]);
         return view('backOffice-addSucces', ['products' => $productAdd]);
+    }
+
+    /**
+     * @param Request $request
+     * @return void
+     */
+    public function validateProductData(Request $request): void
+    {
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'pictureUrl' => 'required',
+            'descProducts' => 'required|string|max:255',
+            'price' => 'required|numeric|min:0',
+            'weight' => 'required|numeric|min:0',
+            'discount' => 'nullable|integer|min:0|max:100',
+            'categoryId' => 'required|exists:categories,id',
+        ]);
     }
 
 }

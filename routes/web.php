@@ -17,8 +17,8 @@ Route::get('/productByCategories', [ProductController::class, 'productByCategori
 Route::get('/products/{id}', [ProductController::class, 'productId']);
 
 /* routes panier  */
-Route::get('/cart', [CartController::class, 'cart'])->name('cart');
-Route::post('/cart/add', [CartController::class, 'addFromCart'])->name('cart.add');;
+Route::get('/cart', [CartController::class, 'show'])->name('cart');
+Route::post('/cart/add', [CartController::class, 'addToCart'])->name('cart.add');;
 Route::get('/cart/remove/{id}', [CartController::class, 'removeFromCart'])->name('cart.remove');
 
 /* Admin */
@@ -26,7 +26,7 @@ Route::get('/backoffice', [BackOfficeController::class, 'backOffice'])->name('ba
 
 /* route pour supprimer un article */
 
-Route::get('/backoffice/{id}/delete', [BackOfficeController::class, 'delete'])->name('delete');
+Route::delete('/backoffice/{id}/delete', [BackOfficeController::class, 'delete'])->name('delete');
 
 /* route pour ajouter un article */
 Route::get('/backoffice/add', [BackOfficeController::class, 'addForm'])->name('addForm');
@@ -34,4 +34,4 @@ Route::post('/backoffice/addSucces', [BackOfficeController::class, 'add'])->name
 
 /* route pour modifier un article */
 Route::get('/backoffice/{id}/modify', [BackOfficeController::class, 'modifyForm'])->name('modifyForm');
-Route::post('/backoffice/{id}/modifySucces', [BackOfficeController::class, 'modify'])->name('modify');
+Route::put('/backoffice/{id}/modifySucces', [BackOfficeController::class, 'modify'])->name('modify');

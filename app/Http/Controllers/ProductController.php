@@ -11,13 +11,11 @@ class ProductController extends Controller
 {
     public function product()
     {
-//        $products = DB::select('select * from products');
         $products = products::all();
         return view('product-list', ['products' => $products]);
     }
     public function productByName()
     {
-//        $products = DB::select('select * from products');
         $products = products::orderby('name', 'asc')->get();
         return view('product-list', ['products' => $products]);
     }
@@ -30,10 +28,10 @@ class ProductController extends Controller
 
     public function productId($id)
     {
-//        $products = DB::select("select * from products where id = $id");
-//        $products = products::where('id', $id)->get();
-        $products = products::find($id);
-        return view('product-details', ['products' => $products]);
+        $products = products::findOrFail($id);
+        if ($products){
+        return view('product-details', ['products' => $products]);}
+
     }
 
     public function productByCategories()

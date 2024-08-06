@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Products extends Model
 {
     use HasFactory;
+
     public $timestamps = false;
 
     protected $fillable = [
@@ -17,24 +18,33 @@ class Products extends Model
         'price',
         'weight',
         'discount',
-        'categoryId'
+        'categoryId',
+        'available'
     ];
 
     public function category()
     {
-        return $this->belongsTo(Category::class, 'categoryId');
+        return $this->belongsTo(Category::class, 'categoryId')->withPivot('quantity');
     }
-    function formatPrice($price): float|int
+
+    public function cart()
     {
-        return $price / 100;
+        return $this->belongsToMany(Cart::class);
     }
-    function priceExcludingVAT($price): float|int
+
+    function formattedPrice(): float
+    {
+        return $this->price / 100;
+    }
+
+    function priceExcludingVAT(): float|int
     {
         $TVA = 20;
-        return (100 * $price/100) / (100 + $TVA);
+        return (100 * $this->price / 100) / (100 + $TVA);
     }
-    function discountedPrice($price, $discount): float|int
+
+    function discountedPrice(): float|int
     {
-        return (($price / 100) * (100 - $discount)) / 100;
+        return (($this->price / 100) * (100 - $this->discount)) / 100;
     }
 }

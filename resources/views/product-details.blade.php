@@ -4,7 +4,7 @@
         <x-detail
             :picture="$products->pictureUrl"
             :name="$products->name"
-            :price="$products->formatPrice($products->price)"
+            :price="$products->formattedPrice()"
             :description="$products->descProducts"
         />
     </x-slot>

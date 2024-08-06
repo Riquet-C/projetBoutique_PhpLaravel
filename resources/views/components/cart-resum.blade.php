@@ -1,11 +1,7 @@
 <div class="col-lg-4 bg-body-tertiary">
     <div class="p-5">
-        <h3 class="fw-bold mb-5 mt-2 pt-1">Résumé</h3>
+
         <hr class="my-4">
-        <div class="d-flex justify-content-between mb-4">
-            <h5 class="text-uppercase">items x</h5>
-            <h5>€ xxx</h5>
-        </div>
 
         <h5 class="text-uppercase mb-3">Shipping</h5>
 
@@ -31,7 +27,7 @@
 
         <div class="d-flex justify-content-between mb-5">
             <h5 class="text-uppercase">Prix total</h5>
-            <h5>€ xxx</h5>
+            <h5> € </h5>
         </div>
         <x-bouton1 url="/" label="Commander"/>
     </div>

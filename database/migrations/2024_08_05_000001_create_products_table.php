@@ -21,6 +21,7 @@ return new class extends Migration
             $table->unsignedBigInteger('categoryId'); // Clé étrangère
             $table->foreign('categoryId')->references('id')->on('categories'); // Définition de la clé étrangère
             $table->integer('discount')->nullable()->default(NULL);
+            $table->integer('available')->nullable()->default(NULL);
             $table->timestamps();
         });
     }

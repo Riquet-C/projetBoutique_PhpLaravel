@@ -10,10 +10,10 @@
                     @foreach($category->products as $product)
                         <x-product :picture="$product->pictureUrl"
                                    :titreCart="$product->name"
-                                   :prixht="$product->priceExcludingVAT($product->price)"
-                                   :prix="$product->formatPrice($product->price)"
+                                   :prixht="$product->priceExcludingVAT()"
+                                   :prix="$product->formattedPrice()"
                                    :reduc="$product->discount"
-                                   :newprix="$product->discountedPrice($product->price, $product->discount)"
+                                   :newprix="$product->discountedPrice()"
                                    :poid="$product->weight"
                                    :id="$product->id"
                         />

@@ -12,18 +12,19 @@ class ProductsSeeder extends Seeder
     /**
      * Run the database seeds.
      */
-        public function run(): void
+    public function run(): void
     {
         DB::table('products')->insert([
-        [
-            'name' => 'Kong',
-            'price' => 1000,
-            'pictureUrl' => '/image/kong.jpg',
-            'descProducts' => Str::random(20), // Utilisation de Str::random pour générer une description aléatoire (peut être remplacée par du Lorem Ipsum)
-            'weight' => 100,
-            'discount' => 10,
-            'categoryId' => 1,
-        ],
+            [
+                'name' => 'Kong',
+                'price' => 1000,
+                'pictureUrl' => '/image/kong.jpg',
+                'descProducts' => Str::random(20), // Utilisation de Str::random pour générer une description aléatoire (peut être remplacée par du Lorem Ipsum)
+                'weight' => 100,
+                'discount' => 10,
+                'categoryId' => 1,
+                'available' => 4,
+            ],
             [
                 'name' => 'Corne',
                 'price' => 100,
@@ -32,6 +33,7 @@ class ProductsSeeder extends Seeder
                 'weight' => 200,
                 'discount' => 20,
                 'categoryId' => 2,
+                'available' => 4,
             ],
             [
                 'name' => 'Corde',
@@ -41,6 +43,7 @@ class ProductsSeeder extends Seeder
                 'weight' => 500,
                 'discount' => NULL,
                 'categoryId' => 3,
+                'available' => 4,
             ],
             [
                 'name' => 'Peluche',
@@ -50,6 +53,7 @@ class ProductsSeeder extends Seeder
                 'weight' => 150,
                 'discount' => 5,
                 'categoryId' => 1,
+                'available' => 4,
             ],
             [
                 'name' => 'Balle',
@@ -59,6 +63,7 @@ class ProductsSeeder extends Seeder
                 'weight' => 400,
                 'discount' => 25,
                 'categoryId' => 2,
+                'available' => 4,
             ],
             [
                 'name' => 'Pouet',
@@ -68,7 +73,8 @@ class ProductsSeeder extends Seeder
                 'weight' => 350,
                 'discount' => NULL,
                 'categoryId' => 3,
+                'available' => 4,
             ],
-            ]);
+        ]);
     }
 }
