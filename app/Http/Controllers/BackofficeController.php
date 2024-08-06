@@ -16,7 +16,7 @@ class BackofficeController extends Controller
     public function delete($id)
     {
         Product::where('id', $id)->delete();
-        return redirect()->route('backoffice')->with('success', 'Produit supprimé avec succès');
+        return view('backoffice_supprimer');
     }
 
     public function pagemodif($id)
@@ -27,7 +27,10 @@ class BackofficeController extends Controller
 
     public function modifier(Request $request, $id)
     {
-        $product = Product::find($id);
+
+        $this->validateProductData($request);
+        $product = Product::findorfail($id);
+
         $product->update([
             'nom' => $request->input('nom'),
             'prix' => $request->input('prix'),
@@ -38,16 +41,20 @@ class BackofficeController extends Controller
             'auteur' => $request->input('auteur'),
         ]);
 
-        return redirect()->route('backoffice')->with('success', 'Produit modifié avec succès');
+        return view('backoffice_modifier', ['product' => $product]);
     }
 
     public function ajouter()
     {
+
         return view('backoffice_ajouter');
     }
 
     public function valider(Request $request)
     {
+
+        $this->validateProductData($request);
+
         Product::create([
             'nom' => $request->input('nom'),
             'prix' => $request->input('prix'),
@@ -58,6 +65,23 @@ class BackofficeController extends Controller
             'auteur' => $request->input('auteur'),
         ]);
 
-        return redirect()->route('backoffice')->with('success', 'Produit ajouté avec succès');
+        return view('backoffice_valider');
+    }
+
+    /**
+     * @param Request $request
+     * @return void
+     */
+    public function validateProductData(Request $request): void
+    {
+        $request->validate([
+            'nom' => 'required|string|max:255',
+            'prix' => 'required|numeric|min:0',
+            'poids' => 'required|numeric|min:0',
+            'image' => 'required|string|max:255',
+            'discount' => 'nullable|numeric|min:0|max:100',
+            'description' => 'required|string',
+            'auteur' => 'required|string|max:255',
+        ]);
     }
 }

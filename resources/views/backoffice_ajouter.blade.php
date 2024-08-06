@@ -12,6 +12,15 @@
 
                 <!-- Registeration Form -->
                 <div class="col-md-7 col-lg-6 ml-auto">
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                     <form action="{{route('valider')}}" method="post">
                         {{csrf_field()}}
                         <div class="row">

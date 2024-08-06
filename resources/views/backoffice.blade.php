@@ -14,7 +14,9 @@
                                 <th data-field="prix" data-sortable="true">Prix (en centimes)</th>
                                 <th data-field="description" data-sortable="true">Description</th>
                                 <th data-field="image">Image</th>
-                                <th data-field="actions" data-formatter="operateFormatter" data-events="operateEvents">Actions</th>
+                                <th data-field="actions" data-formatter="operateFormatter" data-events="operateEvents">
+                                    Actions
+                                </th>
                             </tr>
                             </thead>
                             <tbody>
@@ -25,10 +27,21 @@
                                     <td>{{$key->nom}}</td>
                                     <td>{{$key->prix}}</td>
                                     <td>{{$key->description}}</td>
-                                    <td><img src="{{$key->image}}" alt="Product Image" class="img-thumbnail" style="max-width: 100px;"></td>
+                                    <td><img src="{{$key->image}}" alt="Product Image" class="img-thumbnail"
+                                             style="max-width: 100px;"></td>
                                     <td>
-                                        <a href="/backoffice/{{$key->id}}/supprimer" class="btn btn-danger btn-sm">Supprimer</a>
-                                        <a href="/backoffice/{{$key->id}}/pagemodif" class="btn btn-warning btn-sm">Modifier</a>
+                                        <form action="/backoffice/{{$key->id}}/supprimer" method="POST">
+                                            @method('DELETE')
+                                            @csrf
+                                            <button type="submit" class="btn btn-danger">Supprimer</button>
+                                            {{--  <a href="/backoffice/{{$key->id}}/supprimer" class="btn btn-danger btn-sm">Supprimer</a>--}}
+                                        </form>
+                                        <form action="/backoffice/{{$key->id}}/pagemodif" method="GET">
+
+                                            <button type="submit" class="btn btn-warning btn-sm">Modifier</button>
+
+                                        </form>
+                                        {{--    <a href="/backoffice/{{$key->id}}/pagemodif" class="btn btn-warning btn-sm">Modifier</a>--}}
                                     </td>
                                 </tr>
                             @endforeach
@@ -39,7 +52,7 @@
                     </div>
                 </div>
             </div>
-            <a href= "{{route('ajouter')}}" class="btn btn-warning btn-sm">Ajouter un produit !</a>
+            <a href="{{route('ajouter')}}" class="btn btn-warning btn-sm">Ajouter un produit !</a>
         </div>
 
     </x-slot>

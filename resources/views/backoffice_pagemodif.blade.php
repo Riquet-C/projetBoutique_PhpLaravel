@@ -12,8 +12,17 @@
 
                 <!-- Registeration Form -->
                 <div class="col-md-7 col-lg-6 ml-auto">
-
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                         <form action="{{ route('modifier', ['id' => $product->id]) }}" method="POST">
+                            @method('PUT')
                             @csrf
 
                         <div class="row">
@@ -24,7 +33,7 @@
                                 <i class="fa fa-user text-muted"></i>
                             </span>
                                 </div>
-                                <input id="nom" type="text" name="nom" placeholder="Nom du produit" class="form-control bg-white border-left-0 border-md">
+                                <input id="nom" type="text" name="nom" placeholder="Nom du produit" value="{{$product->nom}}" class="form-control bg-white border-left-0 border-md">
                             </div>
 
                             <!-- Picture URL -->
@@ -34,7 +43,7 @@
                                 <i class="fa fa-user text-muted"></i>
                             </span>
                                 </div>
-                                <input id="image" type="text" name="image" placeholder="Lien Image" class="form-control bg-white border-left-0 border-md">
+                                <input id="image" type="text" name="image" placeholder="Lien Image" value="{{$product->image}}" class="form-control bg-white border-left-0 border-md">
                             </div>
 
                             <!-- desc produit -->
@@ -44,7 +53,7 @@
                                 <i class="fa fa-envelope text-muted"></i>
                             </span>
                                 </div>
-                                <input id="description" type="text" name="description" placeholder="Description Produit" class="form-control bg-white border-left-0 border-md">
+                                <input id="description" type="text" name="description" value="{{$product->description}}" placeholder="Description Produit" class="form-control bg-white border-left-0 border-md">
                             </div>
 
                             <!-- price -->
@@ -54,7 +63,7 @@
                                 <i class="fa fa-user text-muted"></i>
                             </span>
                                 </div>
-                                <input id="prix" type="number" name="prix" placeholder="Prix du produit" class="form-control bg-white border-left-0 border-md">
+                                <input id="prix" type="number" name="prix" placeholder="Prix du produit" value="{{$product->prix}}"class="form-control bg-white border-left-0 border-md">
                             </div>
 
 
@@ -65,7 +74,7 @@
                                 <i class="fa fa-user text-muted"></i>
                             </span>
                                 </div>
-                                <input id="poids" type="text" name="poids" placeholder="Poids du produit" class="form-control bg-white border-left-0 border-md">
+                                <input id="poids" type="text" name="poids" placeholder="Poids du produit" value="{{$product->poids}}" class="form-control bg-white border-left-0 border-md">
                             </div>
 
                             <!-- Discount -->
@@ -75,7 +84,7 @@
                                 <i class="fa fa-user text-muted"></i>
                             </span>
                                 </div>
-                                <input id="discount" type="number" name="discount" placeholder="Remise à appliquer" class="form-control bg-white border-left-0 border-md">
+                                <input id="discount" value="{{$product->discount}}" type="number" name="discount" placeholder="Remise à appliquer" class="form-control bg-white border-left-0 border-md">
                             </div>
                             <!-- Auteur -->
                             <div class="input-group col-lg-6 mb-4">
@@ -84,7 +93,7 @@
                                 <i class="fa fa-user text-muted"></i>
                             </span>
                                 </div>
-                                <input id="auteur" type="text" name="auteur" placeholder="Nom de l'auteur" class="form-control bg-white border-left-0 border-md">
+                                <input id="auteur" type="text" name="auteur" value="{{$product->auteur}}" placeholder="Nom de l'auteur" class="form-control bg-white border-left-0 border-md">
                             </div>
 
                             <!-- Submit Button -->
