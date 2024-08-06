@@ -3,31 +3,47 @@
     <x-slot name="content">
 
         <div class="container">
+
             <div class="row justify-content-around align-content-around vh-100">
-                <div class="col-md-8 col-md-offset-2">
+
+                <div class="col-md-10 col-md-offset-2">
+                    <x-bouton1
+                        url="{{route('ajoutunproduit')}}"
+                        label="Ajouter un produit"
+                    />
                     <div class="fresh-table full-color-azure">
                         <table id="fresh-table" class="table">
                             <thead>
                             <th data-field="id">ID</th>
+                            <th data-field="categorie" data-sortable="true">Catégorie</th>
                             <th data-field="name" data-sortable="true">Name</th>
                             <th data-field="price" data-sortable="true">prix (en centimes)</th>
-                            <th data-field="description" data-sortable="true">description</th>
-                            <th data-field="image">Image</th>
-                            <th data-field="actions" data-formatter="operateFormatter" data-events="operateEvents">
-                                Actions
+                            <th data-field="poid">Poid</th>
+                            <th data-field="reduction" data-formatter="operateFormatter" data-events="operateEvents">
+                                Reduction en %
                             </th>
+                            <th data-field="image">Image</th>
+                            <th data-field="clean">Clean 1=oui 0=non</th>
                             </thead>
                             <tbody>
                             @foreach($product as $key)
                                 <tr>
                                     <td>{{$key->id}}</td>
+                                    <td>{{$key->categorie}}</td>
                                     <td>{{$key->name}}</td>
                                     <td>{{$key->price}}</td>
-                                    <td>{{$key->descProducts}}</td>
-                                    <td>{{$key->pictureUrl}}</td>
+                                    <td>{{$key->weight}}</td>
+                                    <td>{{$key->discount}}</td>
+                                    <td>{{$key->picture}}</td>
+                                    <td>{{$key->clean}}</td>
                                     <td>
-                                        <a href="/backoffice/{{$key->id}}/delete">Supprimer</a>
-                                        <a href="/backoffice/{{$key->id}}/modify">Modifier</a>
+                                        <form method="post" action="{{url('/backoffice/delete',$key->id)}}">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit"> Supprimer </button>
+                                        </form>
+
+                                        <a href="{{route('updateproduit',$key->id)}}">Modifier</a>
                                     </td>
                                 </tr>
                             @endforeach
