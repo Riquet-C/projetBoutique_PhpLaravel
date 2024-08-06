@@ -26,4 +26,4 @@ Route::post('/ajoutunproduit', [BackOfficeController::class, 'store'])->name('aj
 Route::delete('/backoffice/delete/{id}', [BackOfficeController::class, 'destroy'])->name('destroyproduit');
 
 Route::get('/backoffice/update/{id}', [BackOfficeController::class, 'productId'])->name('updateproduit');
-Route::put('/backoffice/update/{id}', [BackOfficeController::class, 'update'])->name('updateproduit');
+Route::put('/backoffice/update/{id}', [BackOfficeController::class, 'updateProduct'])->name('updateproduit');
