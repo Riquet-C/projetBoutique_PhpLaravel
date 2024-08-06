@@ -8,6 +8,18 @@
                     <h2 class="card-title">Ajouter un produit</h2>
                 </div>
                 <div class="card-body">
+{{--                    afficher les erreurs en cas de non remplissage des condiction requires--}}
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+{{--                    fin affichage erreur--}}
+
                     <form action="{{route('ajoutunproduit')}}" method="post">
                         {{ csrf_field() }}
                         <div class="form-group">

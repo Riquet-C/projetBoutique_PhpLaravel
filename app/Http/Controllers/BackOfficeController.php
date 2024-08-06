@@ -19,6 +19,17 @@ class BackOfficeController extends Controller
 
     public function store(Request $request){
 
+        $validated = $request->validate([
+            'id' => 'required',
+            'categorie' => 'required',
+            'name' => 'required',
+            'price' => 'required|numeric|min:1',
+            'weight' => 'required',
+            'discount' => 'required',
+            'picture' => 'required',
+            'clean' => 'required',
+        ]);
+
         $newproduct = [
             'id' => $request->input('id'),
             'categorie' => $request->input('categorie'),

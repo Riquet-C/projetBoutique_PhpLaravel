@@ -31,7 +31,7 @@ class ProductController extends Controller
     }
 
     public function productId($id){
-        $product = DB::select('select * from products where id = ?', [$id]);
+        $product = Product::findOrFail($id);
         return view('product-details', ['product' => $product[0]]);
     }
 }
