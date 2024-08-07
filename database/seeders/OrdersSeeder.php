@@ -4,19 +4,19 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
-class DatabaseSeeder extends Seeder
+class OrdersSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        $this->call([
-            CategoriesSeeder::class,
-            ProductsSeeder::class,
-            CartSeeder::class,
-            OrdersSeeder::class,
-        ]);
+        DB::table('orders')->insert([
+            [
+                'user_id' => '1',
+            ]]);
     }
+
 }

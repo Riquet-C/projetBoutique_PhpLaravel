@@ -107,7 +107,6 @@
                                        value="{{$products->categoryId}}"
                                        class="form-control bg-white border-left-0 border-md">
                             </div>
-
                             <!-- Submit Button -->
                             <div class="form-group col-lg-12 mx-auto mb-0">
                                 <form method="POST" action="/backoffice/{{$products->id}}/modify">
@@ -118,7 +117,6 @@
                             </div>
                         </div>
                     </form>
-
                 </div>
                 <ul>
                     <li>Categorie 1: Chiot</li>

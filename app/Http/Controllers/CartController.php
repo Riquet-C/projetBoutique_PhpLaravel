@@ -9,20 +9,20 @@ use Illuminate\Support\Facades\DB;
 
 class CartController extends Controller
 {
-    public function cart()
-    {
-
-    }
 
     public function addToCart(Request $request)
     {
-        /* potentiellement ajouter une validation en fonction de la quantité disponible */
         $cart = Cart::with('products')->where('user_id', '=', 1)->first();
 
         $product = Products::find($request->input('id'));
 
-        $cart->products()->attach($product->id, ['quantity' => $request->input('quantity')]);
-
+        if ($cart->products()->where('products_id', $request->input('id'))->exists()) {
+            $currentQuantity = $cart->products()->where('products_id', $product->id)->first()->pivot->quantity;
+            $newQuantity = $currentQuantity + $request->input('quantity');
+            $cart->products()->updateExistingPivot($product->id, ['quantity' => $newQuantity]);
+        } else {
+            $cart->products()->attach($request->input('id'), ['quantity' => $request->input('quantity')]);
+        }
         $cart->calculateTotal();
 
         return redirect()->route('cart')->with('success', 'Produit ajouté au panier!');
@@ -37,12 +37,19 @@ class CartController extends Controller
     }
 
 
-    public
-    function removeFromCart($id)
+    public function removeFromCart(Request $request, $id)
     {
+        $cart = Cart::with('products')->where('user_id', '=', 1)->first();
+        $cart->products()->detach($id, ['quantity' => $request->input('quantity')]);
 
-
+        return redirect()->route('cart')->with('success', 'Produit supprimer du panier!');
     }
 
+    public function updateCart(Request $request, $id)
+    {
+        $cart = Cart::with('products')->where('user_id', '=', 1)->first();
+        $cart->products()->updateExistingPivot($id, ['quantity' => $request->input('quantity')]);
+        return redirect()->route('cart');
+    }
 
 }

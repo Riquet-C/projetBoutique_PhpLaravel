@@ -24,12 +24,12 @@ class Products extends Model
 
     public function category()
     {
-        return $this->belongsTo(Category::class, 'categoryId')->withPivot('quantity');
+        return $this->belongsTo(Category::class, 'categoryId');
     }
 
     public function cart()
     {
-        return $this->belongsToMany(Cart::class);
+        return $this->belongsToMany(Cart::class)->withPivot('quantity');
     }
 
     function formattedPrice(): float

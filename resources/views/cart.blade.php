@@ -5,7 +5,7 @@
             <div class="container py-5 h-100">
                 <div class="row d-flex justify-content-center align-items-start h-100">
                     <!-- Colonne des produits -->
-                    <div class="col-12 col-lg-8">
+                    <div class="col-9 col-lg-8">
                         <div class="card card-registration card-registration-2" style="border-radius: 15px;">
                             <div class="card-body p-4">
                                 <div class="d-flex justify-content-between align-items-center mb-4">
@@ -18,7 +18,7 @@
                                         :picture="$product->pictureUrl"
                                         :name="$product->name"
                                         :description="$product->description"
-                                        :price="($product->formattedPrice()*$product->pivot->quantity)"
+                                        :price="($product->formattedPrice())"
                                         :quantity="$product->pivot->quantity"
                                         :id="$product->id"
                                     />
@@ -35,13 +35,13 @@
                         </div>
                     </div>
                     <!-- Colonne du résumé -->
-                    <div class="col-12 col-lg-4 mt-4 mt-lg-0">
+                    <div class="col-3 col-lg-4 mt-4 mt-lg-0">
                         <div class="card" style="border-radius: 15px;">
                             <div class="card-body p-4">
                                 <h3 class="fw-bold mb-4">Résumé</h3>
                                 @foreach($cart->products as $product)
                                     <div class="d-flex justify-content-between mb-3">
-                                        <h5 class="text-uppercase">{{ $product->name }}</h5>
+                                        <h5 class="text-uppercase">{{ $product->name }} x {{ $product->pivot->quantity }}</h5>
                                         <h5>{{ $product->formattedPrice() * $product->pivot->quantity }} €</h5>
                                     </div>
                                 @endforeach
@@ -53,19 +53,12 @@
                                         <option value="2">Classique</option>
                                     </select>
                                 </div>
-                                <h5 class="text-uppercase mb-3">Code promo</h5>
-                                <div class="mb-4">
-                                    <div class="form-outline">
-                                        <input type="text" id="promoCode" class="form-control form-control-lg" />
-                                        <label class="form-label" for="promoCode">Entrer votre code promotionnel</label>
-                                    </div>
-                                </div>
                                 <hr class="my-4">
                                 <div class="d-flex justify-content-between mb-5">
                                     <h5 class="text-uppercase">Prix total</h5>
-                                    <h5> €</h5>
+                                    <h5>{{ $cart->calculateTotal()}} €</h5>
                                 </div>
-                                <x-bouton1 url="/" label="Commander" class="btn btn-primary w-100"/>
+                                <x-bouton1 url="/order" label="Commander" class="btn btn-primary w-100"/>
                             </div>
                         </div>
                     </div>
