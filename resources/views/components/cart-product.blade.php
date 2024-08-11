@@ -8,8 +8,8 @@
         <h6 class="text-muted">{{$name}}</h6>
         <h6 class="mb-0">{{$description}}</h6>
     </div>
-    <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
-        <form action="{{ route('cart.update', $id)}}" method="post">
+    <div class="col-md-4 col-lg-4 col-xl-3">
+        <form action="{{ route('cart.update', $id)}}" method="post" class="d-flex">
             @csrf
             @method('PUT')
             <input id="nombre" min="0" name="quantity" value="{{$quantity}}" type="number"
@@ -28,8 +28,8 @@
     <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
         <h6 class="mb-0">{{$price}} €</h6>
     </div>
-    <div class="col-md-1 col-lg-1 col-xl-1 text-end">
-        <a href="{{ route('cart.remove', $id)}}">
+    <div class="col-md-1 col-lg-1 col-xl-1 text-end ">
+        <a href="{{ route('cart.remove', $id)}}" class="text-danger">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3"
                  viewBox="0 0 16 16">
                 <path

@@ -1,18 +1,36 @@
 <x-layout>
     <x-slot name="title">Panier</x-slot>
     <x-slot name="content">
-        <section class="h-100 h-custom" style="background-color: #c9e1ff;">
+        <section class="h-100 h-custom" style="background-color: #ffede7;">
+            {{--            Message modification--}}
+            <div class="d-flex justify-content-center">
+                @if(session('update'))
+                    <div class="alert alert-success col-6 text-center" role="alert">
+                        {{session('update')}}
+                    </div>
+                @elseif (session('delete'))
+                    <div class="alert alert-success col-6 text-center" role="alert">
+                        {{session('delete')}}
+                    </div>
+                @elseif (session('add'))
+                    <div class="alert alert-success col-6 text-center" role="alert">
+                        {{session('add')}}
+                    </div>
+                @endif
+                {{--            Message modification--}}
+            </div>
             <div class="container py-5 h-100">
                 <div class="row d-flex justify-content-center align-items-start h-100">
                     <!-- Colonne des produits -->
-                    <div class="col-9 col-lg-8">
-                        <div class="card card-registration card-registration-2" style="border-radius: 15px;">
+                    <div class="col-12 col-lg-8">
+                        <div class="card card-registration card-registration-2"
+                             style="border-radius: 15px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
                             <div class="card-body p-4">
                                 <div class="d-flex justify-content-between align-items-center mb-4">
-                                    <h1 class="fw-bold mb-0">Panier</h1>
+                                    <h1 class="fw-bold mb-0" style="color: #333;">Panier</h1>
                                     <h6 class="mb-0 text-muted">{{ count($cart->products) }} produit(s)</h6>
                                 </div>
-                                <hr class="my-4">
+                                <hr class="my-4" style="border-top: 1px solid #ddd;">
                                 @foreach($cart->products as $product)
                                     <x-cart-product
                                         :picture="$product->pictureUrl"
@@ -23,7 +41,7 @@
                                         :id="$product->id"
                                     />
                                 @endforeach
-                                <hr class="my-4">
+                                <hr class="my-4" style="border-top: 1px solid #ddd;">
                                 <div class="pt-4">
                                     <h6 class="mb-0">
                                         <a href="{{ url('/products') }}" class="text-body">
@@ -35,33 +53,7 @@
                         </div>
                     </div>
                     <!-- Colonne du résumé -->
-                    <div class="col-3 col-lg-4 mt-4 mt-lg-0">
-                        <div class="card" style="border-radius: 15px;">
-                            <div class="card-body p-4">
-                                <h3 class="fw-bold mb-4">Résumé</h3>
-                                @foreach($cart->products as $product)
-                                    <div class="d-flex justify-content-between mb-3">
-                                        <h5 class="text-uppercase">{{ $product->name }} x {{ $product->pivot->quantity }}</h5>
-                                        <h5>{{ $product->formattedPrice() * $product->pivot->quantity }} €</h5>
-                                    </div>
-                                @endforeach
-                                <hr class="my-4">
-                                <h5 class="text-uppercase mb-3">Shipping</h5>
-                                <div class="mb-4">
-                                    <select class="form-select">
-                                        <option value="1">Rapide</option>
-                                        <option value="2">Classique</option>
-                                    </select>
-                                </div>
-                                <hr class="my-4">
-                                <div class="d-flex justify-content-between mb-5">
-                                    <h5 class="text-uppercase">Prix total</h5>
-                                    <h5>{{ $cart->calculateTotal()}} €</h5>
-                                </div>
-                                <x-bouton1 url="/order" label="Commander" class="btn btn-primary w-100"/>
-                            </div>
-                        </div>
-                    </div>
+                    <x-cart-resume :cart="$cart"/>
                 </div>
             </div>
         </section>

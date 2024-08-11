@@ -4,15 +4,23 @@ namespace App\Http\Controllers;
 
 use App\Models\Products;
 use Illuminate\Http\Request;
+use App\Models\Orders;
 
 class BackOfficeController extends Controller
 {
     public function backOffice()
     {
         $products = Products::all();
-        return view('backOffice', ['products' => $products]);
+        $orders = Orders::all();
+        return view('backOffice', ['products' => $products], ['orders' => $orders]);
     }
 
+    public function detail($id)
+    {
+        $products = Products::where('id', $id)->get();
+        $orders = Orders::where('id', $id)->get();
+        return view('order-detail', ['products' => $products], ['orders' => $orders]);
+    }
     public function delete($id)
     {
         $productDelete = Products::where('id', $id)->delete();

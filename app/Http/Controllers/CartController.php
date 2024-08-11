@@ -25,7 +25,7 @@ class CartController extends Controller
         }
         $cart->calculateTotal();
 
-        return redirect()->route('cart')->with('success', 'Produit ajouté au panier!');
+        return redirect()->route('cart')->with('add', 'Produit ajouté au panier!');
 
     }
 
@@ -42,14 +42,14 @@ class CartController extends Controller
         $cart = Cart::with('products')->where('user_id', '=', 1)->first();
         $cart->products()->detach($id, ['quantity' => $request->input('quantity')]);
 
-        return redirect()->route('cart')->with('success', 'Produit supprimer du panier!');
+        return redirect()->route('cart')->with('delete', 'Produit supprimer du panier!');
     }
 
     public function updateCart(Request $request, $id)
     {
         $cart = Cart::with('products')->where('user_id', '=', 1)->first();
         $cart->products()->updateExistingPivot($id, ['quantity' => $request->input('quantity')]);
-        return redirect()->route('cart');
+        return redirect()->route('cart')->with('update', 'Quantité du produit modifée!');
     }
 
 }

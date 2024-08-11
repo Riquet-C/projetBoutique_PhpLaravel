@@ -5,24 +5,37 @@
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
-<body class="min-vh-100">
+<body class="" style="background-color: #ffede7;">
+
+
 <header>
     <x-navbar title="PetsLife"/>
 </header>
+<div class="container-fluid" style="margin-top:70px;min-height: calc(100vh - 250px)">
 
 {{$content}}
 
-<footer>
-    <!-- Copyright -->
-    <div class="fixed-bottom text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
-        © 2024 Copyright
+</div>
+
+<footer class="footer text-center text-lg-start mt-2" style="background-color: #ffede7;">
+    <div class="container">
+        <div class="row justify-content-around">
+            <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+                <h5 class="text-uppercase">{{ $title }}</h5>
+                <p>
+                    Découvrez notre gamme complète de produits et services. Nous sommes dédiés à vous offrir la meilleure expérience utilisateur.
+                </p>
+            </div>
+        </div>
     </div>
     <!-- Copyright -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+        © 2024 {{ $title }}. Tous droits réservés.
+    </div>
+    <!-- Copyright -->
 </footer>
 </body>
+
 </html>
 
 

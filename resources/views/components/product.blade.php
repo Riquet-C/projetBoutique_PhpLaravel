@@ -1,4 +1,3 @@
-
 <div class="col-lg-3 col-md-4 col-sm-6 mb-4 m-2">
     <div class="card h-100 shadow-sm">
         <img src="{{ $picture }}" class="card-img-top" alt="Product Image">

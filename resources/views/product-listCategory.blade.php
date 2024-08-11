@@ -2,7 +2,6 @@
     <x-slot name="title">Catalogue</x-slot>
     <x-slot name="content">
         @foreach($categories as $category)
-            <div class="category-section row justify-content-center">
                 <div class="container text-center">
                 <h2>{{$category->nameCategory}}</h2>
                 </div>
@@ -18,8 +17,7 @@
                                    :id="$product->id"
                         />
                     @endforeach
-                    @endforeach
                 </div>
-            </div>
+        @endforeach
     </x-slot>
 </x-layout>

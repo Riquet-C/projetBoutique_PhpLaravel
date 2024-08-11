@@ -37,7 +37,7 @@ Route::post('/backoffice/addSucces', [BackOfficeController::class, 'add'])->name
 /* route pour modifier un article */
 Route::get('/backoffice/{id}/modify', [BackOfficeController::class, 'modifyForm'])->name('modifyForm');
 Route::put('/backoffice/{id}/modifySucces', [BackOfficeController::class, 'modify'])->name('modify');
-
+Route::get('/backoffice/{id}/detail', [BackOfficeController::class, 'detail'])->name('detail');
 
 /* route pour commander */
 Route::get('/order', [OrdersController::class, 'createOrder'])->name('order');
