@@ -6,6 +6,7 @@
             :name="$products->name"
             :price="$products->formattedPrice()"
             :description="$products->descProducts"
+            :id="$products->id"
         />
     </x-slot>
 </x-layout>

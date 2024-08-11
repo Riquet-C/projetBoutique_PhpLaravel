@@ -28,7 +28,7 @@
                             <div class="card-body p-4">
                                 <div class="d-flex justify-content-between align-items-center mb-4">
                                     <h1 class="fw-bold mb-0" style="color: #333;">Panier</h1>
-                                    <h6 class="mb-0 text-muted">{{ count($cart->products) }} produit(s)</h6>
+                                    <h6 class="mb-0 text-muted">{{ $cart->calculateQuantity() }} produit(s)</h6>
                                 </div>
                                 <hr class="my-4" style="border-top: 1px solid #ddd;">
                                 @foreach($cart->products as $product)

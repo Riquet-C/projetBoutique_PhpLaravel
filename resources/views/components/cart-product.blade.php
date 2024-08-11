@@ -5,7 +5,7 @@
             class="img-fluid rounded-3" alt="Cotton T-shirt">
     </div>
     <div class="col-md-3 col-lg-3 col-xl-3">
-        <h6 class="text-muted">{{$name}}</h6>
+        <a href="/products/{{ $id }}"><h6 class="text-muted">{{$name}}</h6></a>
         <h6 class="mb-0">{{$description}}</h6>
     </div>
     <div class="col-md-4 col-lg-4 col-xl-3">

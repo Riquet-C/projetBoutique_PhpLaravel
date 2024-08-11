@@ -40,7 +40,7 @@ class Products extends Model
     function priceExcludingVAT(): float|int
     {
         $TVA = 20;
-        return (100 * $this->price / 100) / (100 + $TVA);
+        return number_format((100 * $this->price / 100) / (100 + $TVA), 2);
     }
 
     function discountedPrice(): float|int

@@ -32,25 +32,16 @@
 
                 <div class="row mb-4">
                     <!-- col.// -->
-                    <div class="col-md-4 col-6 mb-3">
-                        <label class="mb-2 d-block">Quantity</label>
-                        <div class="input-group mb-3" style="width: 170px;">
-                            <button class="btn btn-white border border-secondary px-3" type="button"
-                                    id="button-addon1" data-mdb-ripple-color="dark">
-                                <i class="fas fa-minus"></i>
-                            </button>
-                            <input type="text" class="form-control text-center border border-secondary"
-                                   placeholder="1" aria-label="Example text with button addon"
-                                   aria-describedby="button-addon1"/>
-                            <button class="btn btn-white border border-secondary px-3" type="button"
-                                    id="button-addon2" data-mdb-ripple-color="dark">
-                                <i class="fas fa-plus"></i>
-                            </button>
+                    <form action="{{ route('cart.add') }}" method="POST">
+                        @csrf
+                        <div class="form-group">
+                            <label for="quantity">Quantité</label>
+                            <input type="number" name="quantity" min="0" max="100" step="1" value="0" class="form-control mb-2">
                         </div>
-                    </div>
+                        <input type="hidden" name="id" value="{{ $id }}">
+                        <button type="submit" class="btn btn-success btn-block">Ajouter au Panier</button>
+                    </form>
                 </div>
-                <a href="{{ url('/cart') }}" class="btn btn-primary shadow-0"> <i
-                        class="me-1 fa fa-shopping-basket"></i> Add to cart </a>
             </main>
         </div>
     </div>

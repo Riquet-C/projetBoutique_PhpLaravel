@@ -27,4 +27,14 @@ class Cart extends Model
         $this->save();
         return $total;
     }
+
+    public function calculateQuantity()
+    {
+        $total = 0;
+        foreach ($this->products as $product) {
+            $total += $product->pivot->quantity;
+
+        }
+        return $total;
+    }
 }
