@@ -1,4 +1,4 @@
-# gestion_stock_vuejs
+# projet boutique en laravel
 
 Un site web développé avec PHP Laravel en modèle MVC pour apprendre les bases de ces technologies.
 Site effectuer avant le module javascript et fait uniquement en html / bootstrap
