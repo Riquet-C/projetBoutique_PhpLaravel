@@ -8,7 +8,6 @@ Site effectuer avant le module javascript et fait uniquement en html / bootstrap
 - [Laravel](https://laravel.com/) - Framework PHP
 - [MySQL](https://www.mysql.com/) - Système de gestion de base de données
 - [Bootstrap](https://getbootstrap.com/) - Framework CSS pour un design réactif et mobile-first
-- [Netlify](https://www.netlify.com/) - Hébergement du site
 
 ## Installation
 
