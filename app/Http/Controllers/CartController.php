@@ -32,7 +32,6 @@ class CartController extends Controller
     public function show()
     {
         $cart = Cart::with('products')->where('user_id', '=', 1)->first();
-
         return view('cart', compact('cart'));
     }
 

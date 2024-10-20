@@ -12,25 +12,25 @@ class BackOfficeController extends Controller
     {
         $products = Products::all();
         $orders = Orders::all();
-        return view('backOffice', ['products' => $products], ['orders' => $orders]);
+        return view('backOffice.backOffice', ['products' => $products], ['orders' => $orders]);
     }
 
     public function detail($id)
     {
         $products = Products::where('id', $id)->get();
         $orders = Orders::where('id', $id)->get();
-        return view('order-detail', ['products' => $products], ['orders' => $orders]);
+        return view('order.order-detail', ['products' => $products], ['orders' => $orders]);
     }
     public function delete($id)
     {
         $productDelete = Products::where('id', $id)->delete();
-        return view('backOffice-delete', ['products' => $productDelete]);
+        return view('backOffice.backOffice-delete', ['products' => $productDelete]);
     }
 
     public function modifyForm($id)
     {
         $product = Products::findOrFail($id);
-        return view('backOffice-modify', ['products' => $product]);
+        return view('backOffice.backOffice-modify', ['products' => $product]);
     }
 
     public function modify(Request $request, $id)
@@ -49,12 +49,12 @@ class BackOfficeController extends Controller
                 'categoryId' => $request->input('categoryId'),
             ]
         );
-        return view('backOffice-modifySucces', ['products' => $product]);
+        return view('backOffice.backOffice-modifySucces', ['products' => $product]);
     }
 
     public function addForm()
     {
-        return view('backOffice-add');
+        return view('backOffice.backOffice-add');
     }
 
     public function add(Request $request)
@@ -70,7 +70,7 @@ class BackOfficeController extends Controller
             'discount' => $request->input('discount'),
             'categoryId' => $request->input('categoryId'),
         ]);
-        return view('backOffice-addSucces', ['products' => $productAdd]);
+        return view('backOffice.backOffice-addSucces', ['products' => $productAdd]);
     }
 
     /**

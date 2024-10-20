@@ -12,19 +12,23 @@
             <div class="collapse navbar-collapse justify-content-between" id="navbarExample01">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown"
                            aria-haspopup="true" aria-expanded="false">
                             Catalogue
                         </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="nav-link px-3" href="{{ url('/products') }}">Catalogue</a>
-                            <a class="nav-link px-3" href="{{ url('/productByName') }}">Par nom</a>
-                            <a class="nav-link px-3" href="{{ url('/productByPrice') }}">Prix croissant</a>
-                            <a class="nav-link px-3" href="{{ url('/productByCategories') }}">Par catégories</a>
-                        </div>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <li><a class="dropdown-item" href="{{ url('/products') }}">Catalogue</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/productByName') }}">Par nom</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/productByPrice') }}">Prix croissant</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/productByCategories') }}">Par catégories</a></li>
+                        </ul>
                     </li>
+
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url('/backoffice') }}">Administrateur</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('/login') }}">Se connecter</a>
                     </li>
                 </ul>
             </div>

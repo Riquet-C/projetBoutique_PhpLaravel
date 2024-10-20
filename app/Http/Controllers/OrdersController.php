@@ -35,7 +35,7 @@ class OrdersController extends Controller
 
         $cart->products()->detach();
 
-        return view('order-succes');
+        return view('order.order-succes');
     }
 
     /**

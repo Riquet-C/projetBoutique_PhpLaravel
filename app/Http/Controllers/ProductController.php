@@ -12,31 +12,31 @@ class ProductController extends Controller
     public function product()
     {
         $products = products::all();
-        return view('product-list', ['products' => $products]);
+        return view('product.product-list', ['products' => $products]);
     }
     public function productByName()
     {
         $products = products::orderby('name', 'asc')->get();
-        return view('product-list', ['products' => $products]);
+        return view('product.product-list', ['products' => $products]);
     }
 
     public function productByPrice()
     {
         $products = products::orderby('price', 'asc')->get();
-        return view('product-list', ['products' => $products]);
+        return view('product.product-list', ['products' => $products]);
     }
 
     public function productId($id)
     {
         $products = products::findOrFail($id);
         if ($products){
-        return view('product-details', ['products' => $products]);}
+        return view('product.product-details', ['products' => $products]);}
 
     }
 
     public function productByCategories()
     {
         $categories = Category::with('products')->get();
-        return view('product-listCategory', compact('categories'));
+        return view('product.product-listCategory', compact('categories'));
     }
 }
