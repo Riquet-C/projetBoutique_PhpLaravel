@@ -15,12 +15,12 @@ Pour installer ce projet sur votre machine locale, suivez ces étapes :
 
 1. Clonez le dépôt :
    ```bash
-   git clone https://github.com/votre-utilisateur/votre-repo.git
+   git clone https://github.com/votre-utilisateur/projetBoutique_PhpLaravel.git
     ```
 2. Accédez au répertoire du projet :
 
 ```bash
-cd votre-repo
+cd projetBoutique_PhpLaravel
 ```
 3. Installez les dépendances :
 
